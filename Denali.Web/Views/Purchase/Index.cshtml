@@ -1,0 +1,35 @@
+﻿@model Denali.Web.Models.Customer
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Datos del cliente</h2>
+<hr />
+<div class="row well">
+    <div class="col-md-4">
+        <form asp-action="Discount">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Birthday" class="control-label">Fecha de nacimiento:</label>
+                <input asp-for="Birthday" class="form-control" placeholder="dd/mm/yyyy" />
+                <span asp-validation-for="Birthday" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstPurchaseDate" class="control-label">Fecha de la 1a. compra:</label>
+                <input asp-for="FirstPurchaseDate" class="form-control" placeholder="dd/mm/yyyy" />
+                <span asp-validation-for="FirstPurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsEmployee" />¿Es empleado?
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Calcular Descuento" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

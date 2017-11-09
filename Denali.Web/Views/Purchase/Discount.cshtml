@@ -1,0 +1,45 @@
+﻿@model Denali.Web.Models.Customer
+@{
+    ViewData["Title"] = "Discount";
+}
+
+<style>
+    .dl-horizontal dt {
+        white-space: normal;
+    }
+</style>
+
+<h2>Descuento</h2>
+<div>
+    <hr />
+    <div>
+        <dl class="dl-horizontal">
+            <dt>Fecha de nacimiento</dt>
+            <dd>@Model.Birthday.ToShortDateString()</dd>
+            <dt>Fecha de la 1a. compra</dt>
+            @{
+                if (Model.FirstPurchaseDate.HasValue)
+                {
+                    <dd>@Model.FirstPurchaseDate.Value.ToShortDateString()</dd>
+                }
+                else
+                {
+                    <dd>No disponible</dd>
+                }
+            }
+            <dt>¿Es empleado?</dt>
+            @{
+                if (Model.IsEmployee)
+                {
+                    <dd>Sí</dd>
+                }
+                else
+                {
+                    <dd>No</dd>
+                }
+            }
+            <dt>% de descuento</dt>
+            <dd>@ViewBag.DiscountPercentage</dd>
+        </dl>
+    </div>
+</div>
